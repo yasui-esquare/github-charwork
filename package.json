@@ -1,0 +1,20 @@
+{
+  "name": "github-charwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yasui-esquare@github.com/yasui-esquare/github-charwork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasui-esquare/github-charwork/issues"
+  },
+  "homepage": "https://github.com/yasui-esquare/github-charwork#readme"
+}
