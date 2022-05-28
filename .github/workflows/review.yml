@@ -8,8 +8,7 @@ jobs:
     steps:
       - name: debug
         run: |
-          echo "${{ toJson(github.event.review) }}"
-          echo "${{ toJson(github.event.pull_request) }}"
+          echo "${{ toJson(github.event.pull_request.user.login) }}"
       - name: send
         uses: yasui-esquare/github-chatwork@main
         with:
