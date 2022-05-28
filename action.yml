@@ -9,10 +9,10 @@ inputs:
     required: true
     description: 'Chatwork API token'
   alias:
-    default: '{}'
+    default: null
     description: 'GitHub user to Chatwork user alias'
   mensions:
-    default: '[]'
+    default: null
   text:
     default: null
   title:
