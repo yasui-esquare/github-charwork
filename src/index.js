@@ -5,9 +5,10 @@ const fetch = require('node-fetch');
 /**
  */
 class Chatwork {
-    constructor(room, token) {
+    constructor(room, token, alias) {
         this.room = room;
         this.token = token;
+        this.alias = alias;
     }
 
     async send(message) {
@@ -24,8 +25,12 @@ class Chatwork {
         console.log(await response.json());
     }
 
-    static create_message(message, mensions, title, body) {
-        message ??= "";
+    create_message(mensions, text, title, body) {
+        var message = mensions.map(mension => this.alias[mension] || mension).join(' ');
+        message &&= message + "\n";
+        if(text) {
+            message += text + "\n";
+        }
         message += `[info][title]${title || ' '}[/title]${body || ' '}[/info]`;
         return message;
     }
@@ -35,9 +40,11 @@ class Chatwork {
  */
 async function run() {
     try {
-        const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
-        const message = Chatwork.create_message(core.getInput('message'), 
-                                                JSON.parse(core.getInput('mensions')), 
+        const chatwork = new Chatwork(core.getInput('room'), 
+                                      core.getInput('token'), 
+                                      JSON.parse(core.getInput('alias')));
+        const message = chatwork.create_message(JSON.parse(core.getInput('mensions')), 
+                                                core.getInput('text'), 
                                                 core.getInput('title'), 
                                                 core.getInput('body'));
         await chatwork.send(message);
