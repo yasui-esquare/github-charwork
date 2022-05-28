@@ -24,16 +24,16 @@ class Chatwork {
     }
 }
 
-function pull_request_to_message() {
+function pull_request_to_message(pull_request) {
+    return `[info][title]${pull_request.title}[/title]${pull_request.body}[/info]`;
 }
 
 async function run() {
     try {
-        console.log(`github.event = ${JSON.stringify(github.event)}`);
         const pull_request = github.context.payload.pull_request
         console.log(`pull_request = ${JSON.stringify(pull_request)}`);
-        //const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
-        //await chatwork.send("Hello, world!");
+        const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
+        await chatwork.send(pull_request_to_message(pull_request));
     }
     catch(error) {
         core.setFailed(error.message);
