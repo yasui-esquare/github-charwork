@@ -1,16 +1,19 @@
 on:
   pull_request:
+    branches: [main]
+    types: [closed]
 
 jobs:
   chatwork:
     runs-on: ubuntu-latest
     name: 'send chatwork message'
+    if: github.event.pull_request.merged == true
     steps:
       - name: send
         uses: yasui-esquare/github-chatwork@main
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
-          message: "merge"
+          message: "mainブランチにマージしました。"
           title: ${{ github.event.pull_request.title }}
           body: ${{ github.event.pull_request.body }}
