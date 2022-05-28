@@ -29,9 +29,9 @@ function pull_request_to_message() {
 
 async function run() {
     try {
-        console.log(JSON.stringify(github.pull_request));
-        const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
-        await chatwork.send("Hello, world!");
+        console.log(core.getInput('context'));
+        //const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
+        //await chatwork.send("Hello, world!");
     }
     catch(error) {
         core.setFailed(error.message);
