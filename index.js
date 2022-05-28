@@ -29,7 +29,8 @@ function pull_request_to_message() {
 
 async function run() {
     try {
-        console.log(core.getInput('context'));
+        const context = core.getInput('context');
+        console.log(`context = ${context}`);
         //const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
         //await chatwork.send("Hello, world!");
     }
