@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: send
         id: send
-        uses: yasui-esquare/github-chatwork@v0.1
+        uses: yasui-esquare/github-chatwork@v0.2
         with:
           room: "${{secrets.CHATWORK_ROOM}}
           token: "${{secrets.CHATWORK_TOKEN}}
