@@ -29,6 +29,7 @@ function pull_request_to_message() {
 
 async function run() {
     try {
+        console.log(`github.event = ${JSON.stringify(github.event)}`);
         const pull_request = github.context.payload.pull_request
         console.log(`pull_request = ${JSON.stringify(pull_request)}`);
         //const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
