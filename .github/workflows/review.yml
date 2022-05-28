@@ -1,4 +1,6 @@
 on:
+  pull_request:
+    types: [opened]
   pull_request_review:
 
 jobs:
@@ -6,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: 'send chatwork message'
     steps:
+      - name: debug
+        run: echo ${{ github.event.pull_request.reviewers }}
       - name: send
         uses: yasui-esquare/github-chatwork@main
         with:
