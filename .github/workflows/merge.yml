@@ -4,14 +4,13 @@ on:
 jobs:
   chatwork:
     runs-on: ubuntu-latest
-    name: send chatwork message
+    name: 'send chatwork message'
     steps:
-      - name: debug
-        run: |
-          echo "room = ${{ secrets.CHATWORK_ROOM }}"
-
       - name: send
         uses: yasui-esquare/github-chatwork@test
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
+          message: "merge"
+          title: ${{ github.event.pull_request.title }}
+          body: ${{ github.event.pull_request.body }}
