@@ -26,12 +26,7 @@ class Chatwork {
 
 function create_message(message, mensions, title, body) {
     message ??= "";
-    if(body) {
-        message += `[info][title]${title}[/title]${body}[/info]`;
-    }
-    else {
-        message += `[info]${title}[/info]`;
-    }
+    message += `[info][title]${title || ' '}[/title]${body || ' '}[/info]`;
     return message;
 }
 
