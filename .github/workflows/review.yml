@@ -1,0 +1,16 @@
+on:
+  pull_request_review:
+
+jobs:
+  chatwork:
+    runs-on: ubuntu-latest
+    name: 'send chatwork message'
+    steps:
+      - name: send
+        uses: yasui-esquare/github-chatwork@test
+        with:
+          room: ${{ secrets.CHATWORK_ROOM }}
+          token: ${{ secrets.CHATWORK_TOKEN }}
+          message: "レビューお願いします"
+          title: ${{ github.event.pull_request.title }}
+          body: ${{ github.event.pull_request.body }}

@@ -4,9 +4,19 @@ description: 'send chatwork message'
 inputs:
   room:
     required: true
+    description: 'Chatwork room ID'
   token:
     required: true
+    description: 'Chatwork API token'
+  message:
+    default: null
+  mensions:
+    default: '[]'
+  title:
+    required: true
+  body:
+    default: null
 
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'src/index.js'

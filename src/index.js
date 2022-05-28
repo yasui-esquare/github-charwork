@@ -11,7 +11,8 @@ class Chatwork {
     }
 
     async send(message) {
-        const url = `https://api.chatwork.com/v2/rooms/${this.room}/messages?body=${message}`;
+        const url = `https://api.chatwork.com/v2/rooms/${this.room}/messages` + 
+              `?body=${message}`;
         const options = {
             method: 'POST', 
             headers: {
@@ -22,13 +23,24 @@ class Chatwork {
         const response = await fetch(encodeURI(url), options);
         console.log(await response.json());
     }
+
+    static create_message(message, mensions, title, body) {
+        message ??= "";
+        message += `[info][title]${title || ' '}[/title]${body || ' '}[/info]`;
+        return message;
+    }
 }
 
+/**
+ */
 async function run() {
     try {
-        console.log(github.event);
         const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
-        await chatwork.send("Hello, world!");
+        const message = Chatwork.create_message(core.getInput('message'), 
+                                                JSON.parse(core.getInput('mensions')), 
+                                                core.getInput('title'), 
+                                                core.getInput('body'));
+        await chatwork.send(message);
     }
     catch(error) {
         core.setFailed(error.message);
