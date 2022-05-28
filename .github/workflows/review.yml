@@ -14,7 +14,11 @@ jobs:
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
-          mensions: "[ ${{ github.event.pull_request.user.login }} ]"
+          alias: |
+            {
+              "yasui-esquare": "[To:???]yasui"
+            }
+          mensions: "[ \"${{ github.event.pull_request.user.login }}\" ]"
           text: "レビュー更新"
           title: ${{ github.event.pull_request.title }}
           body: ${{ github.event.review.body }}
