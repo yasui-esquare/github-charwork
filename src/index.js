@@ -24,15 +24,24 @@ class Chatwork {
     }
 }
 
-function to_message(title, body) {
-    return `[info][title]${title}[/title]${body ?? ''}[/info]`;
+function to_message(message, mensions, title, body) {
+    message ??= "";
+    if(body) {
+        message += `[info][title]${title}[/title]${body}[/info]`;
+    }
+    else {
+        message += `[title]${title}[/title]`;
+    }
+    return message;
 }
 
 async function run() {
     try {
         const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
-        var message = core.getInput('message');
-        message += `[info][title]${core.getInput('title')}[/title]${core.getInput('body')}[/info]`;
+        const message = create_message(core.getInput('message'), 
+                                       JSON.parse(core.getInput('mensions')), 
+                                       core.getInput('title'), 
+                                       core.getInput('body'));
         await chatwork.send(message);
     }
     catch(error) {

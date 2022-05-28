@@ -9,13 +9,13 @@ inputs:
     required: true
     description: 'Chatwork API token'
   message:
-    default: ''
+    default: null
   mensions:
     default: '[]'
   title:
     required: true
   body:
-    default: ''
+    default: null
 
 runs:
   using: 'node16'
