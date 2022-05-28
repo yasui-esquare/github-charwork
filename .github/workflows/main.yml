@@ -11,7 +11,7 @@ jobs:
           echo "room = ${{ secrets.CHATWORK_ROOM }}"
 
       - name: send
-        uses: yasui-esquare/github-chatwork@v0.3
+        uses: yasui-esquare/github-chatwork@main
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}

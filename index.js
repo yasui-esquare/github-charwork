@@ -24,8 +24,13 @@ class Chatwork {
     }
 }
 
+function pull_request_to_message() {
+
+
+
 async function run() {
     try {
+        console.log(github.event);
         const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
         await chatwork.send("Hello, world!");
     }
