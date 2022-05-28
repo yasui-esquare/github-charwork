@@ -9,7 +9,7 @@ jobs:
     name: 'send chatwork message'
     steps:
       - name: debug
-        run: echo ${{ github.event.pull_request.reviewers }}
+        run: echo ${{ toJson(github.event.pull_request) }}
       - name: send
         uses: yasui-esquare/github-chatwork@main
         with:
