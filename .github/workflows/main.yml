@@ -13,5 +13,5 @@ jobs:
       - name: send
         uses: yasui-esquare/github-chatwork@v0.2
         with:
-          - room: ${{ secrets.CHATWORK_ROOM }}
-            token: ${{ secrets.CHATWORK_TOKEN }}
+          room: ${{ secrets.CHATWORK_ROOM }}
+          token: ${{ secrets.CHATWORK_TOKEN }}
