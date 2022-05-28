@@ -14,6 +14,7 @@ jobs:
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
+          alias: "{}"
           mensions: "[ ${{ github.event.pull_request.user.login }} ]"
           text: "レビュー更新"
           title: ${{ github.event.pull_request.title }}
