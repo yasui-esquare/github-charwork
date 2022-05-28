@@ -8,8 +8,10 @@ inputs:
   token:
     required: true
     description: 'Chatwork API token'
+  alias:
+    default: "{}"
   mensions:
-    default: null
+    default: "[]"
   text:
     default: null
   title:
