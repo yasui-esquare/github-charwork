@@ -9,3 +9,6 @@ jobs:
       - name: debug
         run: |
           echo "room = ${{ secrets.CHATWORK_ROOM }}"
+
+      - name: send
+        uses: yasui-esquare/github-chatwork@v0.2
