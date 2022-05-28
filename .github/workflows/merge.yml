@@ -14,6 +14,6 @@ jobs:
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
-          message: "mainブランチにマージしました。"
+          text: "mainブランチにマージしました。"
           title: ${{ github.event.pull_request.title }}
           body: ${{ github.event.pull_request.body }}
