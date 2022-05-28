@@ -30,7 +30,7 @@ function create_message(message, mensions, title, body) {
         message += `[info][title]${title}[/title]${body}[/info]`;
     }
     else {
-        message += `[title]${title}[/title]`;
+        message += `[info]${title}[/info]`;
     }
     return message;
 }
