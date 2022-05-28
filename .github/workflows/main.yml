@@ -6,9 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     name: send chatwork message
     steps:
+      - name: debug
+        run: |
+          echo "room = ${{ secrets.CHATWORK_ROOM }}"
+
       - name: send
-        id: send
-        uses: yasui-esquare/github-chatwork@v0.2
+        uses: yasui-esquare/github-chatwork@main
         with:
-          - room: "${{secrets.CHATWORK_ROOM}}"
-            token: "${{secrets.CHATWORK_TOKEN}}"
+          room: ${{ secrets.CHATWORK_ROOM }}
+          token: ${{ secrets.CHATWORK_TOKEN }}

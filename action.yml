@@ -1,13 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'send chatwork message'
+description: 'send chatwork message'
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  room:
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  token:
+    required: true
+
 runs:
   using: 'node16'
   main: 'index.js'
