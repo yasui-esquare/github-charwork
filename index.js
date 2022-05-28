@@ -24,6 +24,9 @@ class Chatwork {
     }
 }
 
+function pull_request_to_message() {
+}
+
 async function run() {
     try {
         console.log(github.event);
