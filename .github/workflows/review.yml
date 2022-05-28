@@ -7,7 +7,7 @@ jobs:
     name: 'send chatwork message'
     steps:
       - name: send
-        uses: yasui-esquare/github-chatwork@test
+        uses: yasui-esquare/github-chatwork@main
         with:
           room: ${{ secrets.CHATWORK_ROOM }}
           token: ${{ secrets.CHATWORK_TOKEN }}
