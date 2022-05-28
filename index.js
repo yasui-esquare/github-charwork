@@ -29,8 +29,8 @@ function pull_request_to_message() {
 
 async function run() {
     try {
-        const context = core.getInput('context');
-        console.log(`context = ${context}`);
+        const pull_request = github.payload.pull_request
+        console.log(`pull_request = ${JSON.stringify(pull_request)}`);
         //const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
         //await chatwork.send("Hello, world!");
     }
