@@ -11,7 +11,8 @@ class Chatwork {
     }
 
     async send(message) {
-        const url = `https://api.chatwork.com/v2/rooms/${this.room}/messages?body=${message}`;
+        const url = `https://api.chatwork.com/v2/rooms/${this.room}/messages` + 
+              `?body=${message}`;
         const options = {
             method: 'POST', 
             headers: {
