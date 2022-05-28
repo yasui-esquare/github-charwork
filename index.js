@@ -29,7 +29,7 @@ function pull_request_to_message() {
 
 async function run() {
     try {
-        console.log(github.event);
+        console.log(JSON.stringify(github));
         const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
         await chatwork.send("Hello, world!");
     }
