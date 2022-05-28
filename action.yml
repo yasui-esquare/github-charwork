@@ -11,7 +11,7 @@ inputs:
   message:
     default: ''
   mensions:
-    default: []
+    default: '[]'
   title:
     required: true
   body:
