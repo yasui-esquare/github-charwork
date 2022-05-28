@@ -24,7 +24,7 @@ class Chatwork {
     }
 }
 
-function to_message(message, mensions, title, body) {
+function create_message(message, mensions, title, body) {
     message ??= "";
     if(body) {
         message += `[info][title]${title}[/title]${body}[/info]`;
