@@ -1,15 +1,37 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const fetch = require('node-fetch');
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
+/**
+ */
+class Chatwork {
+    constructor(room, token) {
+        this.room = room;
+        this.token = token;
+    }
+
+    async send(message) {
+        const url = `https://api.chatwork.com/v2/rooms/${this.room}/messages?body=${message}`;
+        const options = {
+            method: 'POST', 
+            headers: {
+                Accept: 'application/json', 
+                'X-ChatWorkToken': this.token
+            }
+        };
+        const response = await fetch(encodeURI(url), options);
+        console.log(await response.json());
+    }
 }
+
+async function run() {
+    try {
+        const chatwork = new Chatwork(core.getInput('room'), core.getInput('token'));
+        await chatwork.send("Hello, world!");
+    }
+    catch(error) {
+        core.setFailed(error.message);
+    }
+}
+
+run();
