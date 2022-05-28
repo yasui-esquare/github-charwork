@@ -1,6 +1,5 @@
 on:
-  - pull_request:
-    issues:
+  pull_request:
 
 jobs:
   chatwork:
